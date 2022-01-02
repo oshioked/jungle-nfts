@@ -1,0 +1,20 @@
+.team-section {
+    height: 100vh;
+    background: rgba(3, 29, 4, 0.88);
+    display: flex;
+    align-items: center;
+
+    .head {
+        margin-bottom: 55px;
+    }
+
+    .cards-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        .team-member-card {
+            width: 30%;
+        }
+    }
+}
