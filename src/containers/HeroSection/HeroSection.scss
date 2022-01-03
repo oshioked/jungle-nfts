@@ -5,4 +5,18 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    .logo {
+        max-width: 540px;
+    }
+
+    .body-text {
+        font-size: 23px;
+        max-width: 800px;
+    }
+
+    .primary-button {
+        margin-top: 40px;
+    }
+
 }

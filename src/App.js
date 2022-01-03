@@ -1,12 +1,12 @@
 import './App.scss';
 import Footer from './components/Footer/Footer';
 import Navbar from './components/Navbar/Navbar';
-import AboutSection from './container/AboutSection/AboutSection';
-import CommunitySection from './container/CommunitySection/CommunitySection';
-import HeroSection from './container/HeroSection/HeroSection';
-import RoadmapSection from './container/RoadmapSection/RoadmapSection';
-import ShowcaseSection from './container/ShowcaseSection/ShowcaseSection';
-import TeamSection from './container/TeamSection/TeamSection';
+import AboutSection from './containers/AboutSection/AboutSection';
+import CommunitySection from './containers/CommunitySection/CommunitySection';
+import HeroSection from './containers/HeroSection/HeroSection';
+import RoadmapSection from './containers/RoadmapSection/RoadmapSection';
+import ShowcaseSection from './containers/ShowcaseSection/ShowcaseSection';
+import TeamSection from './containers/TeamSection/TeamSection';
 import HeaderBg from './images/headerImage.jpg';
 
 function App() {

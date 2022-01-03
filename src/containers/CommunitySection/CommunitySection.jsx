@@ -8,7 +8,6 @@ const  CommunitySection = props => {
     return(
         <div className="community-section">
             <SectionPadding className="content">
-                
                 <TitleText>Join the community</TitleText>
                 <BodyText>
                     enim irure minim labore. Anim ullamco enim consectetur esse veniam magna ullamco sint elit

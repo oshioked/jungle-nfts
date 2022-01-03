@@ -11,7 +11,7 @@ const ImageWithLoadBg = props =>{
         <div
             style = {{
                 paddingTop: `${(1 / aspectRatio) * 100}%`,
-                backgroundColor: imageLoaded ? 'transparent' : '#9D9D9D' 
+                backgroundColor: imageLoaded ? 'transparent' : 'rgba(3, 29, 4, 0.38)' 
             }}
             className = "image-with-Bg"
         >

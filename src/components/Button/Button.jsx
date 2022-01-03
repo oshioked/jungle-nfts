@@ -1,11 +1,11 @@
-import BodyText from '../BodyText/BodyText';
+import TitleText from '../TitleText/TitleText';
 import './Button.scss';
 
 const Button = props => {
     const { title, onClick } = props;
     return(
         <button className='primary-button' onClick={onClick}>
-            <BodyText>{title}</BodyText>
+            {title}
         </button>
     )
 }
