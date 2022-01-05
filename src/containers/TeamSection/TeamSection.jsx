@@ -1,8 +1,8 @@
 import TitleText from '../../components/TitleText/TitleText';
 import './TeamSection.scss';
-import TeamMember1Image from '../../images/teamMember1.png';
-import TeamMember2Image from '../../images/teamMember2.png';
-import TeamMember3Image from '../../images/teamMember3.png';
+import TeamMember1Image from '../../assets/images/teamMember1.png';
+import TeamMember2Image from '../../assets/images/teamMember2.png';
+import TeamMember3Image from '../../assets/images/teamMember3.png';
 import ImageWithLoadBg from '../../components/ImageWithLoadBg/ImageWithLoadBg';
 import BodyText from '../../components/BodyText/BodyText';
 import SectionPadding from '../../components/SectionPadding/SectionPadding';
@@ -27,7 +27,7 @@ const teamMembers = [
 const TeamSection = props => {
     return(
         <div className="team-section">
-            <SectionPadding>
+            <SectionPadding className="content">
                 <div className="head">
                     <TitleText>Meet The Team</TitleText>
                 </div>

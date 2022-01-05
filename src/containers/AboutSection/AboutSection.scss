@@ -33,17 +33,18 @@
 
             .title-text {
                 margin-bottom: 30px;
+                font-size: 45px;
             }
             .body-text {
-                font-size: 18px;
-                line-height: 40px;
+                font-size: 17px;
+                line-height: 38px;
                 margin-bottom: 30px;
             }
         }
         
         .green-overlay {
             width: 35%;      
-            background: rgba(3, 29, 4, 0.88);
+            background: rgba(3, 29, 4, 0.9);
             opacity: .5;
             position: absolute;
             left: 50%;
@@ -53,6 +54,23 @@
             z-index: 1;
         }
     }
+}
 
-
+@media only screen and (max-width: 980px) {
+    .about-section {
+        min-height: unset;
+        .content {
+            padding-bottom: 60px;
+            .images-container {
+                display: none;
+            }
+            .story-container {
+                width: 100%;
+                min-height: unset;
+            }
+            .green-overlay {
+                width: 100%;
+            }
+        }
+    }
 }

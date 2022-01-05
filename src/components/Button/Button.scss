@@ -8,4 +8,18 @@
     color: #623704;
     font-family: Jungle Land;
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
+
+    &:hover {
+        transform: scale(1.01);
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.95);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .primary-button {
+        padding: 10px 25px;
+        font-size: 20px;
+    }
 }

@@ -7,6 +7,8 @@ nav{
     align-items: center;
     z-index: 5;
     position: absolute;
+    background: linear-gradient(90deg, rgba(3, 29, 4, 0.175) 0.73%, rgba(3, 29, 4, 0.29) 52.05%, rgba(3, 29, 4, 0.17) 100%);
+    opacity: 0;
 
     img {
         max-width: 190px;
@@ -15,7 +17,7 @@ nav{
     .nav-links-pc{
         padding: 0;
         list-style: none;
-        width: 55%;
+        width: 53%;
         display: flex;
         justify-content: space-around;
         font-weight: 500;
@@ -26,22 +28,12 @@ nav{
             overflow: hidden;
             padding-bottom: 2px;
 
-
-            &::before{
-                content: '';
-                position: absolute;
-                height: 2px;
-                background-color: #FDBF22;
-                width: 100%;
-                top: calc(100% - 2px);
-                transform: translateX(-102%);
-                transition: all .5s;
+            &:hover {
+                color: red;
             }
 
-            &:hover{
-                &::before{
-                    transform: translateX(0);
-                }
+            .title-text {
+                font-size: 20px;
             }
         }
     }
@@ -54,30 +46,32 @@ nav{
             border: none;
             background: none;
             cursor: pointer;
+            margin-left: 25px;
+
             &:first-child{
-                margin-right: 25px;
+                margin-left: 0;
             }
         }
     }
 
     .toggle-icon{
         display: none;
+        cursor: pointer;
     }   
 
 
 }
 
-@media only screen and (max-width: 768px){
-    nav{
-        .content{
-            height: 65px;
-            .nav-links-pc,
-            .icons{
-                display: none;
-            }
-            .toggle-icon{
-                display: block;
-            }            
+@media only screen and (max-width: 768px) {
+    nav {
+        height: 65px;
+
+        .nav-links-pc,
+        .icons {
+            display: none;
         }
+        .toggle-icon {
+            display: block;
+        }     
     }
 }

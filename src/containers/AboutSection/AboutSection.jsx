@@ -3,6 +3,12 @@ import ImageWithLoadBg from '../../components/ImageWithLoadBg/ImageWithLoadBg';
 import SectionPadding from '../../components/SectionPadding/SectionPadding';
 import TitleText from '../../components/TitleText/TitleText';
 import './AboutSection.scss';
+import topRightAbout from '../../assets/images/topRightAbout.png';
+import topLeftAbout from '../../assets/images/topLeftAbout.png';
+import bottomRightAbout from '../../assets/images/bottomRightAbout.png';
+import bottomLeftAbout from '../../assets/images/bottomLeftAbout.png';
+import gsap from 'gsap/all';
+import { useRef, useEffect } from 'react';
 
 const storyParagraphs = [
     `
@@ -20,21 +26,38 @@ const storyParagraphs = [
 ]
 
 const AboutSection = props => {
+    const aboutRef = useRef(null);
+    
+    useEffect(() => {
+        const aboutSection = aboutRef.current;
+        const imageContLeft = aboutSection.querySelector(".images-container1");
+        const imageContRight = aboutSection.querySelector(".images-container2");
+        gsap.from([imageContLeft, imageContRight], {
+            scrollTrigger: {
+                trigger: aboutSection,
+                start: 'top 80%',
+                end: 'bottom 50%',
+                scrub: true,
+            },
+            y: 400
+        })
+    }, [aboutRef])
+
     return(
-        <div className="about-section">
+        <div ref={aboutRef} className="about-section">
             <SectionPadding className="content">
                 <div className="images-container images-container1">
                     <ImageWithLoadBg
-                        src={""}
+                        src={topLeftAbout}
                         aspectRatio={1.317}
                     />
                     <ImageWithLoadBg
-                        src={""}
+                        src={bottomLeftAbout}
                         aspectRatio={1.62}
                     />
                 </div>
                 <div className="story-container">
-                    <TitleText>{`About The Jungle`}</TitleText>
+                    <TitleText>{`About The jungle`}</TitleText>
                     <div className="details-container">
                         {
                             storyParagraphs.map((para, i) => (
@@ -45,11 +68,11 @@ const AboutSection = props => {
                 </div>
                 <div className="images-container images-container2">
                     <ImageWithLoadBg
-                        src={""}
+                        src={topRightAbout}
                         aspectRatio={1.317}
                     />
                     <ImageWithLoadBg
-                        src={""}
+                        src={bottomRightAbout}
                         aspectRatio={1.62}
                     />
                 </div>       

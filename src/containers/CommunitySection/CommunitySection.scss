@@ -1,15 +1,16 @@
 .community-section {
     background: rgba(43, 75, 30, 0.88);
-    padding: 90px 0;
+    padding: 90px 5%;
     text-align: left;
 
     .content {
         padding: 100px 5%;
         border-radius: 20px;
         background: rgba(12, 42, 8, 0.8);
+        border: .6px solid #FF9510;
 
         .body-text {
-            margin: 30px 0;
+            margin: 25px 0;
             max-width: 650px;
         }
 
@@ -19,6 +20,30 @@
 
                 &:first-child {
                     margin-right: 20px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .community-section {
+        .content {
+            text-align: center;
+
+            .title-text {
+                font-size: 40px;
+            }
+            .body-text {
+                font-size: 17px;
+                line-height: 29px;
+            }
+            .buttons-container {
+                .primary-button {
+                    &:first-child {
+                        margin-right: 0;
+                        margin-bottom: 20px;
+                    }
                 }
             }
         }

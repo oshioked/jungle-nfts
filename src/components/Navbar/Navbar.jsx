@@ -1,9 +1,12 @@
-import React, {useContext } from 'react';
+import React, {useContext, useRef } from 'react';
 import { MenuContext } from '../../context/menu.context';
 import NavTogglerIcon from '../NavTogglerIcon/NavTogglerIcon';
-import { DiscordIcon, TwitterIcon } from '../svg';
+import { DiscordIcon, InstagramIcon, TwitterIcon } from '../svg';
 import './Navbar.scss';
-import GeorgeLogo from '../../images/brandLogo.png';
+import GeorgeLogo from '../../assets/images/brandLogo.png';
+import TitleText from '../TitleText/TitleText';
+import { useEffect } from 'react/cjs/react.development';
+import gsap from 'gsap';
 
 export const links = [
     {
@@ -26,18 +29,33 @@ export const links = [
 
 const Navbar = props =>{
     const {toggleHidden, hidden} = useContext(MenuContext);
+    const { isJungelOpen } = props;
+    const navRef = useRef(null)
+
+    useEffect(() => {
+        const nav = navRef.current;
+        if (isJungelOpen) {
+            setTimeout(() => {
+                gsap.to(nav, {
+                    autoAlpha: 1,
+                    duration: .5,
+
+                })                
+            }, 6500)
+        }
+    })
 
     const moveToSection = sectionId =>{
         document.querySelector(`#${sectionId}`).scrollIntoView({behavior: 'smooth'})
     }
     return(
-        <nav>
+        <nav ref={navRef}>
             <img src={ GeorgeLogo } alt="George logo" />
             <ul className = "nav-links-pc">
-                <li onClick = {()=>moveToSection('about-section')}>About us</li>
-                <li onClick = {()=>moveToSection('showcase-section')}>Showcase</li>
-                <li onClick = {()=>moveToSection('roadmap-section')}>Roadmap</li>
-                <li onClick = {()=>moveToSection('team-section')}>Team</li>
+                <li onClick = {()=>moveToSection('about-section')}><TitleText>About</TitleText></li>
+                <li onClick = {()=>moveToSection('showcase-section')}><TitleText>Showcase</TitleText></li>
+                <li onClick = {()=>moveToSection('roadmap-section')}><TitleText>Roadmap</TitleText></li>
+                <li onClick = {()=>moveToSection('team-section')}><TitleText>Team</TitleText></li>
             </ul>
             <div className = "icons">
                 <a
@@ -53,6 +71,13 @@ const Navbar = props =>{
                     target="_blank" aria-label = 'twitter-link'
                 >
                     <TwitterIcon/>
+                </a>
+                <a
+                    href="https://instagram.com/"
+                    rel="noopener noreferrer"
+                    target="_blank" aria-label = 'instagram-link'
+                >
+                    <InstagramIcon/>
                 </a>
             </div>
             <div onClick = {toggleHidden} className = "toggle-icon">
