@@ -27,7 +27,7 @@ const HeroSection = props => {
                 })                
             }, 5000)
         }
-    }, [isJungelOpen])
+    }, [isJungelOpen, sectionRef])
 
     return(
         <div ref={sectionRef} className="hero-section">

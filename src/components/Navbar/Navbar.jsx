@@ -5,7 +5,7 @@ import { DiscordIcon, InstagramIcon, TwitterIcon } from '../svg';
 import './Navbar.scss';
 import GeorgeLogo from '../../assets/images/brandLogo.png';
 import TitleText from '../TitleText/TitleText';
-import { useEffect } from 'react/cjs/react.development';
+import { useEffect } from 'react';
 import gsap from 'gsap';
 
 export const links = [
