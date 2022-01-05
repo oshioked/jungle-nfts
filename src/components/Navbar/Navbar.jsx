@@ -43,7 +43,7 @@ const Navbar = props =>{
                 })                
             }, 6500)
         }
-    })
+    }, [navRef, isJungelOpen])
 
     const moveToSection = sectionId =>{
         document.querySelector(`#${sectionId}`).scrollIntoView({behavior: 'smooth'})
