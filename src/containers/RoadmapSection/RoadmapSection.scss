@@ -23,6 +23,7 @@
         background: rgba(3, 29, 4, 0.7);
         border-radius: 400px 400px 20px 20px;
         border: .6px solid #FF9510;
+        transition: all .5s;
         
         
         .phases-navigation {
@@ -32,20 +33,24 @@
             padding: 10px 65px 10px;
             margin-bottom: -40px;
             position: relative;
-            overflow: hidden;
             z-index: 0;
 
-            .arc {
+            .arc-container {
                 position: absolute;
                 z-index: -1;
                 left: 50%;
                 top: 45px;
-                transform: translateX(-50%);;
+                transform: translateX(-50%);
                 width: calc(100% - 150px);
-                height: 100%;
-                border: 1px dashed #FF9510;
-                border-radius: 50%/300px 300px 0 0;
-                
+                height: calc( 100% - 40px );
+                overflow: hidden;
+
+                .arc {
+                    height: calc(100% + 45px);
+                    width: 100%;
+                    border: 1px dashed #FF9510;
+                    border-radius: 50%/300px 300px 0 0;
+                }                
             }
 
             .phase-button-container {
@@ -56,6 +61,13 @@
                 margin-top: 0;
                 padding: 1px;
                 cursor: pointer;
+                transition: all .4s;
+                
+                
+                &:hover {
+                    transform: scale(1.1);
+
+                }
 
                 .phase-button {
                     width: 100%;
@@ -71,9 +83,23 @@
                     }
                 }
 
+                &:nth-child(1),
+                &:nth-child(4) {
+                    margin-top: 130px;
+                    transform: translateY(25px);
+                                    
+                    &:hover {
+                        transform: translateY(24px) scale(1.1);
+                    }
+
+                    &.active {
+                        transform: translateY(24px) scale(1.1);
+                    }
+                }
+                
                 &.active {
                     background: #163113;
-                    transform: scale(1.2);
+                    transform: scale(1.1);
                     border: 1px dashed #FF9510;
                     padding: 5px;
 
@@ -86,13 +112,10 @@
                             -webkit-background-clip: text;
                             -webkit-text-fill-color: transparent;
                         }
+
                     }
                 }
 
-                &:nth-child(1),
-                &:nth-child(4) {
-                    margin-top: 120px;
-                }
             }
         }
 

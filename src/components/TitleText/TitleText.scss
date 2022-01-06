@@ -1,9 +1,28 @@
 .title-text {
-    margin: 0;
-    font-family: Jungle Land;
     font-size: 55px;
-    background: linear-gradient(180deg, #FDE12D 0%, #FF7403 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+}
+
+.title-text[data-text] {
+  display:inline-block;
+  font-family: Jungle Land;
+  position:relative;
+  margin:10px;
+}
+span[data-text]:before {
+  content:attr(data-text);
+  background: rgba(98, 55, 4, 1);
+  -webkit-text-stroke: 4px transparent;    
+  -webkit-background-clip: text;
+  background-clip: text;
+  color:transparent;
+}
+span[data-text]:after {
+  content:attr(data-text);
+  left:0;
+  top:0;
+  position:absolute;
+  background-image: linear-gradient(180deg, #FDE12D 0%, #FF7403 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }

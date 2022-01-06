@@ -3,11 +3,12 @@ import GeorgeLogo from '../../assets/images/brandLogo.png';
 import BodyText from '../../components/BodyText/BodyText';
 import Button from '../../components/Button/Button';
 import { ArrowDownIcon } from '../../components/svg';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 
 const HeroSection = props => {
     const {isJungelOpen} = props;
+    const [soundOn, setSoundOn] = useState(true)
     const sectionRef = useRef(null);
 
     useEffect(() => {
@@ -27,7 +28,19 @@ const HeroSection = props => {
                 })                
             }, 5000)
         }
-    }, [isJungelOpen, sectionRef])
+    }, [isJungelOpen, sectionRef]);
+
+    const toggleSound = () => {
+        const audio = document.querySelector('audio');
+        if (soundOn) {
+            audio.pause();
+            setSoundOn(false)
+        } else {
+            audio.play();
+            setSoundOn(true)
+        }
+
+    }
 
     return(
         <div ref={sectionRef} className="hero-section">
@@ -38,6 +51,9 @@ const HeroSection = props => {
                 <div className="arrow-down-btn">
                     <ArrowDownIcon />
                 </div>                
+                <div className="sound-button">
+                    <Button title={`SOUND ${soundOn ? "OFF" : "ON"}`} onClick={toggleSound} />
+                </div>
             </div>
         </div>
     )

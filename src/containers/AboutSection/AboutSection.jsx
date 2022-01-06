@@ -44,7 +44,7 @@ const AboutSection = props => {
     }, [aboutRef])
 
     return(
-        <div ref={aboutRef} className="about-section">
+        <div id="about-section" ref={aboutRef} className="about-section">
             <SectionPadding className="content">
                 <div className="images-container images-container1">
                     <ImageWithLoadBg

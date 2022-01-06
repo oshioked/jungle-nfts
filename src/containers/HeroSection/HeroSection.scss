@@ -4,12 +4,33 @@
     display: flex;
     justify-content: center;
     padding: 150px 5% 0;
+    position: relative;
+
 
     .content {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        position: static;
+
+        .sound-button {
+            position: absolute;
+            bottom: 35px;
+            right: 50%;
+            transform: translateX(50%);
+            width: 100vw;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-right: 10%;
+
+            .primary-button {
+                padding: 7px 11px;
+                font-size: 15px;
+                border-width: 2px;
+            }
+        }
 
         .logo {
             max-width: 540px;

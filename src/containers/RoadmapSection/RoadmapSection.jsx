@@ -1,10 +1,15 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import BodyText from '../../components/BodyText/BodyText';
 import RoadmapMobileCard from '../../components/RoadmapMobileCard/RoadmapMobileCard';
 import SectionPadding from '../../components/SectionPadding/SectionPadding';
 import TitleText from '../../components/TitleText/TitleText';
 import './RoadmapSection.scss';
+import gsap from 'gsap';
+import { useRef } from 'react';
+import { __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED } from 'react/cjs/react.development';
 
+
+// only four phases can be used with this component.
 const roadmapPhases = [
     {
         title: "Phase 1",
@@ -71,8 +76,48 @@ const roadmapPhases = [
 const RoadmapSection = props => {
     const [selectedPhaseTitle, setSelectedPhaseTitle] = useState("Phase 1");
     const selectedPhase = roadmapPhases.find(phase => phase.title === selectedPhaseTitle);
+    const contentRef = useRef(null);
+    const sectionRef = useRef(null);
+
+    const switchPhase = (title) => {
+        const content = contentRef.current;
+        if (!content) return;
+        const tl = gsap.timeline();
+        tl.to(content, {
+            y: 40,
+            autoAlpha: 0,
+            duration: .5,
+            ease: 'in',
+            stagger: .2,
+            onComplete: () => {
+                setSelectedPhaseTitle(title);
+            }
+        })
+        .to(content, {
+            y: 0,
+            autoAlpha: 1,
+            duration: .5,
+            stagger: .2,
+            ease: 'out'
+        })
+    }
+
+    useEffect(() => {
+        const content = contentRef.current;
+        if(!content) return;
+        gsap.from(content, {
+            scrollTrigger: {
+                trigger: sectionRef.current,
+                start: 'top 30%',
+            },
+            y: 40,
+            autoAlpha: 0,
+            duration: .5
+        })
+    }, [contentRef, sectionRef])
+    
     return(
-        <div className="roadmap-section">
+        <div id="roadmap-section" ref={sectionRef} className="roadmap-section">
             <SectionPadding>
                 <div className="head">
                     <TitleText>Roadmap</TitleText>
@@ -85,22 +130,27 @@ const RoadmapSection = props => {
                     <div className="phases-navigation">
                         {
                             roadmapPhases.map((a, i) => (
-                                <div onClick={()=>setSelectedPhaseTitle(a.title)} className={`phase-button-container ${a.title === selectedPhaseTitle ? 'active' : ''}`}>
+                                <div onClick={()=>switchPhase(a.title)} className={`phase-button-container ${a.title === selectedPhaseTitle ? 'active' : ''}`}>
                                     <div className="phase-button">
                                         <BodyText>{a.title}</BodyText>
                                     </div>
                                 </div>
                             ))
                         }
-                        <div className="arc" />
+                        <div className="arc-container">
+                            <div className="arc" />
+                        </div>
                     </div>
-                    <div className="details-container">
+                    <div ref={contentRef} className="details-container">
                         <TitleText>{selectedPhase.name}</TitleText>
-                        {
-                            selectedPhase.detailsParagraphs.map(a => (
-                                <BodyText>{a}</BodyText>
-                            ))
-                        }
+                        <div className="details">
+                            {
+                                selectedPhase.detailsParagraphs.map(a => (
+                                    <BodyText>{a}</BodyText>
+                                ))
+                            }                            
+                        </div>
+
                     </div>
                 </div> 
                 <div className="mobile-cards-container">

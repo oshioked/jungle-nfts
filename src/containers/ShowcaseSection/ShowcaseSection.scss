@@ -24,21 +24,14 @@
             justify-content: center;
             width: 23%;
             border-radius: 5px;
-            transition: all .55s ease-in-out;
+            transition: all .5s ease-in-out;
             cursor: pointer;
 
-            .cursor {
-                position: absolute;
-                z-index: 3;
-                height: 70px;
-                width: 70px;
-                border-radius: 50%;
-                opacity: 0;
-                background-size: contain;
-                background-repeat: no-repeat;
-                // background-image: url(/images/cursors/viewCaseStudyCursor.png);
-                animation: cursor 10s linear infinite;
-              }
+            &:hover {
+                img {
+                    transform: scale(1.1);
+                }
+            }
 
             &.active {
                 width: 550px;

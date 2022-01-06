@@ -16,7 +16,7 @@ const ShowcaseSection = props => {
     const [selectedImage, setSelectedImage] = useState(0);
         
     return(
-        <div className="showcase-section">
+        <div id="showcase-section" className="showcase-section">
             <SectionPadding>
                 <div className="head">
                     <TitleText>Showcase</TitleText>

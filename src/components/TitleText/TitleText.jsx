@@ -2,7 +2,7 @@ import './TitleText.scss';
 
 const TitleText = props => {
     return(
-        <h2 className='title-text'>{props.children}</h2>
+        <span data-text={props.children} className='title-text' />
     )
 }
 

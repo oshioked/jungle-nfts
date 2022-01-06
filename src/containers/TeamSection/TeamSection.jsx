@@ -6,6 +6,8 @@ import TeamMember3Image from '../../assets/images/teamMember3.png';
 import ImageWithLoadBg from '../../components/ImageWithLoadBg/ImageWithLoadBg';
 import BodyText from '../../components/BodyText/BodyText';
 import SectionPadding from '../../components/SectionPadding/SectionPadding';
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
 
 const teamMembers = [
     {
@@ -24,9 +26,35 @@ const teamMembers = [
         role: "Software engineer"
     },
 ]
+
 const TeamSection = props => {
+    const sectionRef = useRef(null);
+
+    useEffect(() => {
+        if(window.innerWidth < 900 )return;
+        const section = sectionRef.current;
+        const teamMembers = section.querySelectorAll(".team-member-card");
+        gsap.from([teamMembers[0], teamMembers[2]], {
+            scrollTrigger: {
+                trigger: section,
+                start: 'top 80%',
+                end: 'bottom 80%',
+                scrub: .8,
+            },
+            y: 300
+        })
+        gsap.from(teamMembers[1], {
+            scrollTrigger: {
+                trigger: section,
+                start: 'top 80%',
+                end: 'bottom 80%',
+                scrub: .8,
+            },
+            y: 150
+        })
+    }, [sectionRef])
     return(
-        <div className="team-section">
+        <div id="team-section" ref={sectionRef} className="team-section">
             <SectionPadding className="content">
                 <div className="head">
                     <TitleText>Meet The Team</TitleText>
