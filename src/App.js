@@ -38,7 +38,7 @@ function App() {
   return (
     <MenuProvider>
       <div ref={appRef} className="App">
-          <audio controls autoPlay loop style={{display: 'none'}}>
+          <audio controls loop style={{display: 'none'}}>
             <source src={JungleAudio} type="audio/mp3"/>
           </audio>
         <Navbar isJungelOpen={isJungelOpen} />
