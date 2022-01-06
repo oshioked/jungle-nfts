@@ -2,7 +2,7 @@ import './HeroSection.scss';
 import GeorgeLogo from '../../assets/images/brandLogo.png';
 import BodyText from '../../components/BodyText/BodyText';
 import Button from '../../components/Button/Button';
-import { ArrowDownIcon } from '../../components/svg';
+import { ArrowDownIcon, SoundIcon } from '../../components/svg';
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 
@@ -52,7 +52,9 @@ const HeroSection = props => {
                     <ArrowDownIcon />
                 </div>                
                 <div className="sound-button">
-                    <Button title={`SOUND ${soundOn ? "OFF" : "ON"}`} onClick={toggleSound} />
+                    <Button onClick={toggleSound}>
+                        <SoundIcon />
+                    </Button>
                 </div>
             </div>
         </div>

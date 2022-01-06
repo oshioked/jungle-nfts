@@ -9,6 +9,7 @@ const MenuProvider = (props) => {
   const [hidden, setHidden] = useState(true)
 
   const toggleHidden = () => {
+    console.log('called')
     setHidden(!hidden)
   }
 

@@ -26,9 +26,12 @@
             margin-right: 10%;
 
             .primary-button {
-                padding: 7px 11px;
-                font-size: 15px;
+                padding: 7px;
+                padding-right: 9px;
                 border-width: 2px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
         }
 

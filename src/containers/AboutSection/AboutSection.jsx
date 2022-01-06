@@ -37,7 +37,7 @@ const AboutSection = props => {
                 trigger: aboutSection,
                 start: 'top 80%',
                 end: 'bottom 50%',
-                scrub: true,
+                scrub: .8,
             },
             y: 400
         })

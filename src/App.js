@@ -14,6 +14,8 @@ import { useEffect, useRef, useState } from 'react';
 import IntroScreen from './containers/IntroScreen/IntroScreen';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import MenuProvider from './context/menu.context';
+import NavMenu from './components/NavMenu/NavMenu';
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -34,29 +36,31 @@ function App() {
   }, [appRef, isJungelOpen])
 
   return (
-    <div ref={appRef} className="App">
-        <iframe src={''} allow="autoPlay" id="audio" style={{display: 'none'}}></iframe>
-        <audio controls autoPlay loop style={{display: 'none'}}>
-          <source src={JungleAudio} type="audio/mp3"/>
-        </audio>
-      <Navbar isJungelOpen={isJungelOpen} />
-      <IntroScreen isJungelOpen={isJungelOpen} setIsJungleOpen={setIsJungleOpen}/>
-      <HeroSection isJungelOpen={isJungelOpen} />
-      <AboutSection />
-      <ShowcaseSection />
-      <RoadmapSection />
-      <TeamSection />
-      <CommunitySection />
-      <Footer />
-      <div className="app-bg">
-          <div className = 'video-container'>
-              <video playsInline preload = {false} id = "home-head-video" poster = {HeaderBg} muted loop>
-                  <source src = {require('./assets/videos/forest-bg.mp4')} type = "video/mp4"/>
-              </video>                    
-          </div>
-        <img src={HeaderBg} alt="Header background" />
+    <MenuProvider>
+      <div ref={appRef} className="App">
+          <audio controls autoPlay loop style={{display: 'none'}}>
+            <source src={JungleAudio} type="audio/mp3"/>
+          </audio>
+        <Navbar isJungelOpen={isJungelOpen} />
+        <NavMenu />
+        <IntroScreen isJungelOpen={isJungelOpen} setIsJungleOpen={setIsJungleOpen}/>
+        <HeroSection isJungelOpen={isJungelOpen} />
+        <AboutSection />
+        <ShowcaseSection />
+        <RoadmapSection />
+        <TeamSection />
+        <CommunitySection />
+        <Footer />
+        <div className="app-bg">
+            <div className = 'video-container'>
+                <video playsInline preload = {false} id = "home-head-video" poster = {HeaderBg} muted loop>
+                    <source src = {require('./assets/videos/forest-bg.mp4')} type = "video/mp4"/>
+                </video>                    
+            </div>
+          <img src={HeaderBg} alt="Header background" />
+        </div>
       </div>
-    </div>
+    </MenuProvider>
   );
 }
 

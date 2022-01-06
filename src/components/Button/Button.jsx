@@ -1,11 +1,10 @@
-import TitleText from '../TitleText/TitleText';
 import './Button.scss';
 
 const Button = props => {
-    const { title, onClick } = props;
+    const { title, onClick, children } = props;
     return(
         <button className='primary-button' onClick={onClick}>
-            {title}
+            {children || title}
         </button>
     )
 }

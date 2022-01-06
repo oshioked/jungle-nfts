@@ -94,6 +94,10 @@
             }
         }
     }
+
+    .mobile-scroll-arrows {
+        display: none;
+    }
 }
 
 @media only screen and (max-width: 768px) {
@@ -106,8 +110,20 @@
         }
         .images-container {
             overflow: auto;
+            scroll-behavior: smooth;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
             .showcase-card {
-                min-width: 400px;
+                min-width: 320px;
+                height: 320px;
+
+                &:hover {
+                    img {
+                        transform: unset;
+                    }
+                }
 
                 &:first-child {
                     margin-left: 20px;
@@ -116,6 +132,39 @@
         }
         .images-control {
             display: none;
+        }
+        .mobile-scroll-arrows {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+
+            .btn {
+                cursor: pointer;
+
+                svg {
+                    width: 20px;
+                    filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+                }          
+                
+                &.inactive {
+                    svg {
+                        path {
+                            fill: grey;
+                            opacity: .5;
+                        }
+                    }
+                }
+            }
+
+
+
+            .arrow-left-btn {
+                transform: rotate(90deg);
+                margin-right: 100px;
+            }
+            .arrow-right-btn {
+                transform: rotate(270deg);
+            }
         }
     }
 }
