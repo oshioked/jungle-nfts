@@ -31,8 +31,9 @@ const TeamSection = props => {
     const sectionRef = useRef(null);
 
     useEffect(() => {
-        if(window.innerWidth < 900 )return;
+        if(window.innerWidth < 950 || document.body.clientWidth < 950 )return;
         const section = sectionRef.current;
+        if(!section) return;
         const teamMembers = section.querySelectorAll(".team-member-card");
         gsap.from([teamMembers[0], teamMembers[2]], {
             scrollTrigger: {
