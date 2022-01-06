@@ -2,13 +2,13 @@ import './HeroSection.scss';
 import GeorgeLogo from '../../assets/images/brandLogo.png';
 import BodyText from '../../components/BodyText/BodyText';
 import Button from '../../components/Button/Button';
-import { ArrowDownIcon, SoundIcon } from '../../components/svg';
+import { ArrowDownIcon, SoundOffIcon, SoundOnIcon } from '../../components/svg';
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 
 const HeroSection = props => {
     const {isJungelOpen} = props;
-    const [soundOn, setSoundOn] = useState(true)
+    const [soundOn, setSoundOn] = useState(false)
     const sectionRef = useRef(null);
 
     useEffect(() => {
@@ -53,7 +53,14 @@ const HeroSection = props => {
                 </div>                
                 <div className="sound-button">
                     <Button onClick={toggleSound}>
-                        <SoundIcon />
+                        {
+                            !soundOn ? (
+                                <SoundOnIcon  />
+                            ) : (
+                                <SoundOffIcon />
+                            )
+                        }
+                        
                     </Button>
                 </div>
             </div>

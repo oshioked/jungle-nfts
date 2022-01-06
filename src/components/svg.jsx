@@ -61,8 +61,29 @@ export const ArrowDownIcon = () => (
 
 )
 
-export const SoundIcon = () => (
-    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M21.0827 0L6.41968 3.28625V15.2396C3.68893 14.6997 0.916016 16.7713 0.916016 19.0474C0.916016 21.0063 2.44777 22 4.1106 22C6.08602 22 8.2466 20.5993 8.24935 17.7485V7.75683L19.2494 5.50275V13.4081C16.5223 12.87 13.7494 14.9334 13.7494 17.204C13.7494 19.1684 15.3214 20.1667 16.9769 20.1667C18.9386 20.1667 21.0799 18.7678 21.0827 15.917V0Z" fill="#623704"/>
-    </svg>
+export const SoundOnIcon = () => (
+<svg width="23" height="24" viewBox="0 0 23 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_418_41)">
+<path d="M21.0832 0.5V23.5L10.5415 17.75V15.5669L19.1665 20.2714V3.72862L10.5415 8.43404V6.25L21.0832 0.5ZM8.62484 6.25V17.75H1.9165V6.25H8.62484ZM6.70817 8.16667H3.83317V15.8333H6.70817V8.16667Z" fill="#623704"/>
+</g>
+<defs>
+<clipPath id="clip0_418_41">
+<rect width="23" height="23" fill="white" transform="translate(0 0.5)"/>
+</clipPath>
+</defs>
+</svg>
+
+)
+
+export const SoundOffIcon = () => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_417_37)">
+<path d="M20.455 0L17.221 3.984L10 8V10.288L13.836 8.152L7.992 15.35V8H3V18H5.842L2 22.731L3.545 24L22 1.269L20.455 0V0ZM6 16H5V10H6V16ZM19 7.358V23L10.251 18.135L11.528 16.562L17 19.601V9.822L19 7.358V7.358Z" fill="#623704"/>
+</g>
+<defs>
+<clipPath id="clip0_417_37">
+<rect width="24" height="24" fill="white"/>
+</clipPath>
+</defs>
+</svg>
 )
