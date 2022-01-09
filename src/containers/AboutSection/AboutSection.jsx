@@ -32,14 +32,18 @@ const AboutSection = props => {
         const aboutSection = aboutRef.current;
         const imageContLeft = aboutSection.querySelector(".images-container1");
         const imageContRight = aboutSection.querySelector(".images-container2");
-        gsap.from([imageContLeft, imageContRight], {
+        gsap.set([imageContLeft, imageContRight], {
+            y: 400
+        })
+        gsap.to([imageContLeft, imageContRight], {
             scrollTrigger: {
                 trigger: aboutSection,
                 start: 'top 80%',
                 end: 'bottom 50%',
                 scrub: .8,
+                // markers: true
             },
-            y: 400
+            y: 0
         })
     }, [aboutRef])
 

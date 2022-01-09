@@ -3,7 +3,6 @@ import "./NavMenu.scss"
 import gsap from "gsap"
 import { MenuContext } from "../../context/menu.context"
 import { links } from "../Navbar/Navbar"
-import { DiscordIcon, TwitterIcon } from "../svg"
 import TitleText from "../TitleText/TitleText"
 
 const NavMenu = (props) => {
@@ -11,13 +10,12 @@ const NavMenu = (props) => {
   const linksRef = useRef(null)
   const { hidden, toggleHidden } = useContext(MenuContext)
   const tl = useState(() => gsap.timeline({ paused: true }))[0]
-  const connectRef = useRef(null)
 
   useEffect(() => {
     const linksChildren = [...linksRef.current.children].map((a) => a.children)
     tl.to(menuRef.current, {
       y: 0,
-      duration: 1.3,
+      duration: .7,
       ease: "power3.inOut",
     })
       .from(
@@ -30,10 +28,6 @@ const NavMenu = (props) => {
         },
         "-=0.15"
       )
-      .from(connectRef.current, {
-        duration: 0.7,
-        autoAlpha: 0,
-      })
   }, [tl])
 
   useEffect(() => {

@@ -2,9 +2,10 @@ import './HeroSection.scss';
 import GeorgeLogo from '../../assets/images/brandLogo.png';
 import BodyText from '../../components/BodyText/BodyText';
 import Button from '../../components/Button/Button';
-import { ArrowDownIcon, SoundOffIcon, SoundOnIcon } from '../../components/svg';
+import { SoundOffIcon, SoundOnIcon } from '../../components/svg';
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
+import HeaderOrangutan from '../../assets/images/header-orangutan.png';
 
 const HeroSection = props => {
     const {isJungelOpen} = props;
@@ -48,9 +49,10 @@ const HeroSection = props => {
                 <img className="logo" src={GeorgeLogo} alt="george logo" />
                 <BodyText>n irure ad officia ex enim irure minim labore. Anim ullamco enim consectetur esse veniam magna ullamco sint elit deserunt nulla ullamco aute proident. Minim</BodyText>
                 <Button title="MINT AN ORANGUTAN" onClick={()=>{}} />
-                <div className="arrow-down-btn">
+                <img className='header-orangutan-img' src={HeaderOrangutan} alt="header orangutan" />
+                {/* <div className="arrow-down-btn">
                     <ArrowDownIcon />
-                </div>                
+                </div>                 */}
                 <div className="sound-button">
                     <Button onClick={toggleSound}>
                         {

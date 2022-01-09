@@ -14,7 +14,7 @@ const RoadmapMobileCard = props => {
             <div className="text-container">
                 <TitleText>{name}</TitleText>
                 {paragraphs.map((a, i) => (
-                    <BodyText>{a}</BodyText>
+                    <BodyText key={i}>{a}</BodyText>
                 ))}
             </div>
         </div>

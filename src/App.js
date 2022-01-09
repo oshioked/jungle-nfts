@@ -9,7 +9,6 @@ import ShowcaseSection from './containers/ShowcaseSection/ShowcaseSection';
 import TeamSection from './containers/TeamSection/TeamSection';
 import HeaderBg from './assets/images/headerImage.jpg';
 import JungleAudio from './assets/audio/JungleAmbiencespe PE010801_preview.mp3';
-import SilenceAudio from './assets/audio/silence.mp3';
 import { useEffect, useRef, useState } from 'react';
 import IntroScreen from './containers/IntroScreen/IntroScreen';
 import gsap from 'gsap';
@@ -26,7 +25,6 @@ function App() {
   useEffect(() => {
     const app = appRef.current;
     const video = app.querySelector("video");
-    console.log(video)
     if(isJungelOpen){
       gsap.to(video, {
         scale: 1.1,

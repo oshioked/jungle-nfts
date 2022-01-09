@@ -6,7 +6,6 @@ import TitleText from '../../components/TitleText/TitleText';
 import './RoadmapSection.scss';
 import gsap from 'gsap';
 import { useRef } from 'react';
-import { __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED } from 'react/cjs/react.development';
 
 
 // only four phases can be used with this component.
@@ -105,13 +104,18 @@ const RoadmapSection = props => {
     useEffect(() => {
         const content = contentRef.current;
         if(!content) return;
-        gsap.from(content, {
+        gsap.set(content, {
+            y: 40,
+            autoAlpha: 0,
+        })
+        gsap.to(content, {
             scrollTrigger: {
                 trigger: sectionRef.current,
                 start: 'top 30%',
+                markers: true
             },
-            y: 40,
-            autoAlpha: 0,
+            y: 0,
+            autoAlpha: 1,
             duration: .5
         })
     }, [contentRef, sectionRef])
@@ -130,7 +134,7 @@ const RoadmapSection = props => {
                     <div className="phases-navigation">
                         {
                             roadmapPhases.map((a, i) => (
-                                <div onClick={()=>switchPhase(a.title)} className={`phase-button-container ${a.title === selectedPhaseTitle ? 'active' : ''}`}>
+                                <div key={i} onClick={()=>switchPhase(a.title)} className={`phase-button-container ${a.title === selectedPhaseTitle ? 'active' : ''}`}>
                                     <div className="phase-button">
                                         <BodyText>{a.title}</BodyText>
                                     </div>
@@ -145,8 +149,8 @@ const RoadmapSection = props => {
                         <TitleText>{selectedPhase.name}</TitleText>
                         <div className="details">
                             {
-                                selectedPhase.detailsParagraphs.map(a => (
-                                    <BodyText>{a}</BodyText>
+                                selectedPhase.detailsParagraphs.map((a, i) => (
+                                    <BodyText key={i}>{a}</BodyText>
                                 ))
                             }                            
                         </div>
@@ -157,6 +161,7 @@ const RoadmapSection = props => {
                     {
                         roadmapPhases.map((a, i) => (
                             <RoadmapMobileCard
+                                key={i}
                                 title={a.title}
                                 name={a.name}
                                 paragraphs={a.detailsParagraphs}

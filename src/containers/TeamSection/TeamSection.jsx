@@ -35,25 +35,34 @@ const TeamSection = props => {
         const section = sectionRef.current;
         if(!section) return;
         const teamMembers = section.querySelectorAll(".team-member-card");
-        gsap.from([teamMembers[0], teamMembers[2]], {
-            scrollTrigger: {
-                trigger: section,
-                start: 'top 80%',
-                end: 'bottom 80%',
-                scrub: .8,
-            },
+        gsap.set([teamMembers[0], teamMembers[2]], {
             y: 300
         })
-        gsap.from(teamMembers[1], {
+        gsap.to([teamMembers[0], teamMembers[2]], {
             scrollTrigger: {
                 trigger: section,
                 start: 'top 80%',
                 end: 'bottom 80%',
                 scrub: .8,
+                // markers: true
             },
+            y: 0
+        })
+        gsap.set(teamMembers[1], {
             y: 150
         })
+        gsap.to(teamMembers[1], {
+            scrollTrigger: {
+                trigger: section,
+                start: 'top 80%',
+                end: 'bottom 80%',
+                scrub: .8,
+                // markers: true
+            },
+            y: 0
+        })
     }, [sectionRef])
+
     return(
         <div id="team-section" ref={sectionRef} className="team-section">
             <SectionPadding className="content">
@@ -63,7 +72,7 @@ const TeamSection = props => {
                 <div className="cards-container">
                 {
                     teamMembers.map((member, i) => (
-                        <div className="team-member-card">
+                        <div key={i} className="team-member-card">
                             <ImageWithLoadBg
                                 src={member.image}
                                 aspectRatio={1}

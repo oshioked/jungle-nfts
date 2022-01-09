@@ -11,7 +11,7 @@
 span[data-text]:before {
   content:attr(data-text);
   background: rgba(98, 55, 4, 1);
-  -webkit-text-stroke: 4px transparent;    
+  -webkit-text-stroke: 3.5px transparent;    
   -webkit-background-clip: text;
   background-clip: text;
   color:transparent;

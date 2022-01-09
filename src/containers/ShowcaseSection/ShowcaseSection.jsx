@@ -45,7 +45,7 @@ const ShowcaseSection = props => {
                 <div ref={imagesContRef} className="images-container">
                     {
                         showcaseImages.map((a, i) => (
-                            <div onClick={()=>setSelectedImageIndex(i)} className={`showcase-card ${i === selectedImageIndex ? "active" : ''}`}>
+                            <div key={i} onClick={()=>setSelectedImageIndex(i)} className={`showcase-card ${i === selectedImageIndex ? "active" : ''}`}>
                                 <div className="test">
                                     <img src={a} alt="showcase card" />
                                 </div>
@@ -56,7 +56,7 @@ const ShowcaseSection = props => {
                 <div className="images-control">
                     {
                         showcaseImages.map((a, i) => (
-                            <div onClick={()=>setSelectedImageIndex(i)} className={`control ${selectedImageIndex === i ? 'active' : '' } `} />
+                            <div key={i} onClick={()=>setSelectedImageIndex(i)} className={`control ${selectedImageIndex === i ? 'active' : '' } `} />
                         ))
                     }
                 </div>

@@ -31,7 +31,6 @@ const Navbar = props =>{
     const {toggleHidden, hidden} = useContext(MenuContext);
     const { isJungelOpen } = props;
     const navRef = useRef(null);
-    console.log({toggleHidden})
 
     useEffect(() => {
         const nav = navRef.current;
