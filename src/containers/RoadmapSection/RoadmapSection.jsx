@@ -112,7 +112,7 @@ const RoadmapSection = props => {
             scrollTrigger: {
                 trigger: sectionRef.current,
                 start: 'top 30%',
-                markers: true
+                // markers: true
             },
             y: 0,
             autoAlpha: 1,
