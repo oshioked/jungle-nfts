@@ -22,27 +22,30 @@
       width: 100%;
       right: 0;
       left: 0;
-      overflow: hidden;;;
+      overflow: hidden;
       z-index: 0;
 
       #home-head-video{
-        transform: scale(1.8);
+          transform: scale(1.8);
           // display: none;
           position: absolute;
           top: 0;
           left: 0;
+          // height: 100%;
+          // width: auto;
+
 
           // max-width: 100%;
 
-          @media (min-aspect-ratio: 16/9) {
-              width: 100%;
-              // height: auto;
-          }
-          @media (max-aspect-ratio: 16/9) {
-              width: auto;
+          @media (min-width: 768px) {
               height: 100%;
+              width: auto;
           }
-      }            
+          @media (max-width: 768px) {
+            width: 100%;
+            height: auto;
+          }
+    }
   }
 
   audio {

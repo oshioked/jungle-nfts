@@ -8,6 +8,7 @@ import RoadmapSection from './containers/RoadmapSection/RoadmapSection';
 import ShowcaseSection from './containers/ShowcaseSection/ShowcaseSection';
 import TeamSection from './containers/TeamSection/TeamSection';
 import HeaderBg from './assets/images/headerImage.jpg';
+import HeaderBgMobile from './assets/images/headerImageMobile.jpeg';
 import JungleAudio from './assets/audio/JungleAmbiencespe PE010801_preview.mp3';
 import { useEffect, useRef, useState } from 'react';
 import IntroScreen from './containers/IntroScreen/IntroScreen';
@@ -15,12 +16,16 @@ import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import MenuProvider from './context/menu.context';
 import NavMenu from './components/NavMenu/NavMenu';
+import HeaderBgVideo from './assets/videos/forest-bg.mp4';
+import HeaderBgVideoMobile from './assets/images/headerImageMobile.jpeg';
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
+let initialWindowWidth = window.innerWidth || document.body.clientWidth;
 
 function App() {
   const [isJungelOpen, setIsJungleOpen] = useState(false);
   const appRef = useRef(null);
+  const [ windowMode, setWindowMode ] = useState(initialWindowWidth > 768 ? "desktop" : "mobile")
 
   useEffect(() => {
     const app = appRef.current;
@@ -32,6 +37,18 @@ function App() {
       })
     }
   }, [appRef, isJungelOpen])
+
+  useEffect(() => {
+    window.onresize = () => {
+      const newWindowWidth = window.innerWidth || document.body.clientWidth;
+      if ( newWindowWidth < 768 && windowMode === "desktop" ) {
+        setWindowMode("mobile")
+      } else if ( newWindowWidth > 768 && windowMode === "mobile" ) {
+        setWindowMode("desktop")
+      }
+    };
+    return () => window.onresize = () => {};
+  }, [])
 
   return (
     <MenuProvider>
@@ -51,11 +68,11 @@ function App() {
         <Footer />
         <div className="app-bg">
             <div className = 'video-container'>
-                <video playsInline preload = {false} id = "home-head-video" poster = {HeaderBg} muted loop>
-                    <source src = {require('./assets/videos/forest-bg.mp4')} type = "video/mp4"/>
+                <video playsInline preload = {false} id = "home-head-video" poster = { windowMode ===  'desktop' ? HeaderBg : HeaderBgMobile} muted loop>
+                    <source src = { windowMode ===  'desktop' ? HeaderBgVideo : HeaderBgVideoMobile } type = "video/mp4"/>
                 </video>                    
             </div>
-          <img src={HeaderBg} alt="Header background" />
+            <img src={ windowMode ===  'desktop' ? HeaderBg : HeaderBgMobile} alt="Header background" />
         </div>
       </div>
     </MenuProvider>
