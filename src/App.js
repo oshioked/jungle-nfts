@@ -48,7 +48,7 @@ function App() {
       }
     };
     return () => window.onresize = () => {};
-  }, [])
+  }, [windowMode])
 
   return (
     <MenuProvider>
