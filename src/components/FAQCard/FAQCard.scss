@@ -1,0 +1,50 @@
+.faq-card {
+    background: rgba(54, 89, 30, 0.75);
+    border-radius: 10px;
+    padding: 20px 5%;
+    margin-bottom: 40px;
+    text-align: left;
+    cursor: pointer;
+    transition: all .5s;
+
+    &:hover {
+        background: rgba(54, 89, 30, 0.85);
+    }
+
+    .question-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .question {
+            font-size: 24px;
+            flex: 1;
+        }
+
+        .sign {
+            font-size: 50px;
+            line-height: 30px;
+        }
+
+        .title-text {
+            margin: 0;
+        }       
+
+    }
+
+    .answer-container {
+        overflow: hidden;
+        padding-top: 10px;
+        height: 0;
+        transition: all .5s;
+
+        &.active {
+            height: fit-content;
+        }
+        .body-text {
+            opacity: .75;
+            font-size: 18px;
+        }
+    }
+
+}

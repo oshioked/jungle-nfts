@@ -9,7 +9,7 @@ import HeaderOrangutan from '../../assets/images/header-orangutan.png';
 
 const HeroSection = props => {
     const {isJungelOpen} = props;
-    const [soundOn, setSoundOn] = useState(false)
+    const [ soundOn, setSoundOn ] = useState(true)
     const sectionRef = useRef(null);
 
     useEffect(() => {

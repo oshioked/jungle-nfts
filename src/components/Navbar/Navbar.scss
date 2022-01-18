@@ -48,6 +48,11 @@ nav{
             cursor: pointer;
             margin-left: 25px;
 
+            img {
+                height: 30px;
+                width: auto;
+            }
+
             &:first-child{
                 margin-left: 0;
             }

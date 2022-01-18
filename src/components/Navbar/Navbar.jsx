@@ -1,7 +1,9 @@
 import React, {useContext, useRef } from 'react';
 import { MenuContext } from '../../context/menu.context';
 import NavTogglerIcon from '../NavTogglerIcon/NavTogglerIcon';
-import { DiscordIcon, InstagramIcon, TwitterIcon } from '../svg';
+import DiscordIcon from '../../assets/images/discordIcon.png';
+import TwitterIcon from '../../assets/images/twitterIcon.png';
+import InstagramIcon from '../../assets/images/instagramIcon.png';
 import './Navbar.scss';
 import GeorgeLogo from '../../assets/images/brandLogo.png';
 import TitleText from '../TitleText/TitleText';
@@ -63,21 +65,21 @@ const Navbar = props =>{
                     rel="noopener noreferrer"
                     target="_blank" aria-label = 'discord-server-link'
                 >
-                    <DiscordIcon/>
+                    <img src={DiscordIcon} alt="discord" />
                 </a>
                 <a
                     href="https://twitter.com/GnomeSouls"
                     rel="noopener noreferrer"
                     target="_blank" aria-label = 'twitter-link'
                 >
-                    <TwitterIcon/>
+                <img src={TwitterIcon} alt="discord" />
                 </a>
                 <a
                     href="https://instagram.com/"
                     rel="noopener noreferrer"
                     target="_blank" aria-label = 'instagram-link'
                 >
-                    <InstagramIcon/>
+                <img src={InstagramIcon} alt="discord" />
                 </a>
             </div>
             <div onClick = {toggleHidden} className = "toggle-icon">

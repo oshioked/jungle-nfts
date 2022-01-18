@@ -4,6 +4,9 @@ import gsap from "gsap"
 import { MenuContext } from "../../context/menu.context"
 import { links } from "../Navbar/Navbar"
 import TitleText from "../TitleText/TitleText"
+import InstagramIcon from '../../assets/images/instagramIcon.png';
+import TwitterIcon from '../../assets/images/twitterIcon.png';
+import DiscordIcon from '../../assets/images/discordIcon.png';
 
 const NavMenu = (props) => {
   const menuRef = useRef(null)
@@ -53,6 +56,30 @@ const NavMenu = (props) => {
             ))}
           </ul>
         </div>
+        
+        <div className = "icons">
+                <a
+                    href="https://discord.gg/xtKyEKjxxN"
+                    rel="noopener noreferrer"
+                    target="_blank" aria-label = 'discord-server-link'
+                >
+                  <img src={DiscordIcon} alt="discord" />
+                </a>
+                <a
+                    href="https://twitter.com/GnomeSouls"
+                    rel="noopener noreferrer"
+                    target="_blank" aria-label = 'twitter-link'
+                >
+                  <img src={TwitterIcon} alt="discord" />
+                </a>
+                <a
+                    href="https://instagram.com/"
+                    rel="noopener noreferrer"
+                    target="_blank" aria-label = 'instagram-link'
+                >
+                  <img src={InstagramIcon} alt="discord" />
+                </a>
+            </div>
       </div>
     </div>
   )

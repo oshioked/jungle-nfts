@@ -18,6 +18,7 @@ import MenuProvider from './context/menu.context';
 import NavMenu from './components/NavMenu/NavMenu';
 import HeaderBgVideo from './assets/videos/forest-bg.mp4';
 import HeaderBgVideoMobile from './assets/images/headerImageMobile.jpeg';
+import FAQSection from './containers/FAQSection/FAQSection';
 
 gsap.registerPlugin(ScrollTrigger);
 let initialWindowWidth = window.innerWidth || document.body.clientWidth;
@@ -64,6 +65,7 @@ function App() {
         <ShowcaseSection />
         <RoadmapSection />
         <TeamSection />
+        <FAQSection />
         <CommunitySection />
         <Footer />
         <div className="app-bg">

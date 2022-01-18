@@ -4,7 +4,8 @@ import Button from '../../components/Button/Button';
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 
-const playVideo = () =>{
+const playAudioAndVideo = () =>{
+    document.querySelector("audio").play()
     document.querySelector('video').play();
 }
 
@@ -37,7 +38,7 @@ const IntroScreen = props => {
             y: 300,
             duration: 1.4
         }, 'start')
-        playVideo();
+        playAudioAndVideo();
         setTimeout(() => {
             window.onscroll = ()=> {}
         })
